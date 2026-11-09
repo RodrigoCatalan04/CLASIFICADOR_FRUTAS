@@ -1,0 +1,5 @@
+Mihai Oltean. Fruits-360 dataset (2017–). CC BY-SA 4.0.
+https://github.com/fruits-360/fruits-360-100x100
+Revisión: c3b8394bc9cc903a82feb46c11aa1ad94b88a432
+Subconjunto didáctico con etiquetas traducidas; redimensionado solo al procesar.
+Licencia: https://creativecommons.org/licenses/by-sa/4.0/

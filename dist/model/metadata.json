@@ -1,0 +1,63 @@
+{
+  "labels": [
+    "manzana",
+    "banana",
+    "naranja"
+  ],
+  "inputSize": 160,
+  "inputType": "float32",
+  "inputRange": [
+    0,
+    255
+  ],
+  "normalization": "included_in_model",
+  "modelType": "GraphModel",
+  "tensorflowjs": "4.22.0",
+  "datasetRevision": "c3b8394bc9cc903a82feb46c11aa1ad94b88a432",
+  "base": "MobileNetV2",
+  "testAccuracy": 0.9888888888888889,
+  "limitation": "Tres clases. No detecta objetos desconocidos; puntajes no calibrados.",
+  "version": "2",
+  "modelDate": "2026-11-09",
+  "trainingVarieties": {
+    "manzana": [
+      "Apple Red 1",
+      "Apple Red 2",
+      "Apple Red 3",
+      "Apple Red Delicious 1",
+      "Apple Golden 1",
+      "Apple Golden 2",
+      "Apple Granny Smith 1",
+      "Apple Braeburn 1",
+      "Apple Pink Lady 1",
+      "Apple Red Yellow 1"
+    ],
+    "banana": [
+      "Banana 1",
+      "Banana 3",
+      "Banana Lady Finger 1",
+      "Banana Red 1"
+    ],
+    "naranja": [
+      "Orange 1",
+      "Orange 2",
+      "Orange 5",
+      "orange 4"
+    ]
+  },
+  "heldOutVarieties": {
+    "manzana": [
+      "Apple Golden 3",
+      "Apple Crimson Snow 1"
+    ],
+    "banana": [
+      "Banana 4"
+    ],
+    "naranja": [
+      "Orange 3"
+    ]
+  },
+  "augmentation": "fondos reales y sintéticos, escala 35–130 %, rotación, luz, balance de blancos, foto dentro de un celular (35 %), desenfoque, ruido, JPEG",
+  "simulatedPhoneScreenAccuracyAuto": 0.9711538461538461,
+  "recommendedCameraMode": "Auto: recortes 1×, 1,5× y 2×; se usa el de mayor confianza"
+}

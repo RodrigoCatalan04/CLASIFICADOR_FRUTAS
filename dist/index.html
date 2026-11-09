@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#154e3b"><meta name="description" content="Reconoce manzanas, bananas y naranjas con tu cámara. Una experiencia de aprendizaje con inteligencia artificial.">
+  <title>FrutaLens · Mira. Descubre.</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/tf.min.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header class="header"><a class="brand" href="./" aria-label="FrutaLens inicio"><img src="assets/mark.svg" alt="" width="34" height="34">Fruta<span>Lens</span></a><nav aria-label="Navegación principal"><a href="#como-funciona">Cómo funciona</a><span class="privacy"><i></i> Tus imágenes se quedan contigo</span></nav></header>
+<main>
+  <section class="intro"><div><p class="eyebrow"><span></span> EXPLORA CON INTELIGENCIA ARTIFICIAL</p><h1>La fruta, a<br><em>primera vista.</em></h1><p class="lead">Acerca una fruta a tu cámara.<br>Descubre qué ve nuestro modelo.</p></div><div class="hero-art" aria-hidden="true"><div class="orbit"></div><img src="assets/fruits.svg" alt=""><span class="art-label">UN PEQUEÑO LABORATORIO DE CURIOSIDAD</span></div></section>
+  <section class="workspace" aria-label="Clasificador de frutas">
+    <div class="camera-card">
+      <div class="card-header"><span><b class="live-dot" id="live-dot"></b> <span id="source-label">Tu cámara</span></span><span class="tag" id="camera-state">EN ESPERA</span></div>
+      <div class="viewfinder" id="viewfinder">
+        <video id="video" autoplay muted playsinline hidden aria-label="Vista de la cámara"></video>
+        <img id="photo" alt="Imagen seleccionada para clasificar" hidden>
+        <div class="empty-camera" id="empty-camera"><div class="camera-icon"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M7 15h9l3-5h10l3 5h9v24H7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="26" r="8" stroke="currentColor" stroke-width="2"/></svg></div><h2>¿Qué fruta tienes hoy?</h2><p>Activa tu cámara y coloca una sola fruta<br>en el centro del encuadre.</p><button id="start" class="button primary" disabled>Activar cámara <span aria-hidden="true">↗</span></button><span class="permission-note">Te pediremos permiso para usar la cámara</span></div>
+        <div class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <span class="frame-tip" id="frame-tip" hidden>Una fruta · centrada · que llene el recuadro</span>
+      </div>
+      <div class="camera-controls"><button id="toggle" class="button outline" disabled>Iniciar cámara</button><button id="switch" class="icon-button" title="Cambiar cámara" aria-label="Cambiar cámara" disabled>↻</button><div class="zoom" role="group" aria-label="Acercamiento de la cámara"><span>Zoom</span><button data-zoom="auto" aria-pressed="true" title="Prueba 1×, 1,5× y 2× y usa el recorte más claro">Auto</button><button data-zoom="1">1×</button><button data-zoom="2">2×</button></div><span class="control-divider"></span><label for="upload" class="upload-label">↑ Subir foto<input id="upload" type="file" accept="image/jpeg,image/png" disabled></label></div>
+      <p id="message" class="message" role="status">Preparando el modelo…</p><button class="retry" id="retry" hidden>Reintentar carga del modelo</button>
+    </div>
+    <aside class="result-card"><div class="card-header"><span>Resultado</span><span class="tag green" id="model-state">CARGANDO</span></div><div class="result-main"><div class="result-symbol" id="result-symbol" aria-hidden="true">?</div><p class="eyebrow" id="result-kicker">LISTO PARA DESCUBRIR</p><h2 id="prediction" aria-live="polite">Te toca mirar</h2><p id="result-description">Activa la cámara o prueba una foto<br>para obtener una predicción.</p></div><div class="scores"><div class="score-heading"><span>Coincidencia con cada clase</span><span id="timing">—</span></div><div id="score-list"></div></div><figure class="model-view"><canvas id="capture" width="160" height="160" aria-label="Recorte que recibe el modelo"></canvas><figcaption>Lo que ve el modelo · <span id="crop-zoom">—</span><br><small>Imagen de 160×160 que recibe el modelo. En «Auto» se elige el recorte más claro.</small></figcaption></figure><p class="model-note">El modelo compara <strong>3 frutas</strong>. Puede equivocarse con otros objetos, variedades o fondos. La puntuación no garantiza un acierto.</p></aside>
+  </section>
+  <section class="samples"><div><h2>¿Sin una fruta a mano?</h2><p>Prueba con una imagen de ejemplo.</p></div><div class="sample-list"><button data-sample="manzana" disabled><img src="assets/manzana.jpg" alt="">Manzana <span>↗</span></button><button data-sample="banana" disabled><img src="assets/banana.jpg" alt="">Banana <span>↗</span></button><button data-sample="naranja" disabled><img src="assets/naranja.jpg" alt="">Naranja <span>↗</span></button></div></section>
+  <section class="how" id="como-funciona"><div class="section-heading"><p class="eyebrow">DE LA CÁMARA A LA PREDICCIÓN</p><h2>Tan simple como mirar.</h2></div><div class="steps"><article><span>01</span><h3>Enfoca una fruta</h3><p>Usa buena luz, un fondo claro y una sola fruta dentro del encuadre.</p></article><article><span>02</span><h3>Deja que el modelo observe</h3><p>La clasificación se actualiza mientras la cámara está activa.</p></article><article><span>03</span><h3>Explora el resultado</h3><p>Compara las puntuaciones. Cambia el ángulo y comprueba qué ocurre.</p></article></div></section>
+</main>
+<footer><a class="brand" href="./">Fruta<span>Lens</span></a><p>Hecho para aprender. Diseñado para explorar.</p><span class="version" title="Versión de la aplicación y del modelo">v1.2 · modelo v2 2026-11-09</span><details><summary>Acerca del modelo y las imágenes</summary><p>MobileNetV2 con una capa entrenada para manzana, banana y naranja sobre un subconjunto de Fruits-360. Ejemplos de Mihai Oltean, Fruits-360, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. <a href="https://github.com/fruits-360/fruits-360-100x100" target="_blank" rel="noopener">Fuente de los datos</a>. Consulta <a href="assets/ATRIBUCION.txt">la atribución completa</a>. Las fotos y los fotogramas se procesan localmente; la aplicación no los envía ni los guarda.</p></details></footer>
+</body></html>
